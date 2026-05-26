@@ -40,12 +40,14 @@ export const SpeechHelper = {
   startListening(
     lang: 'en' | 'hi',
     onResult: (text: string) => void,
-    onError: (err: any) => void,
+    onError: (err: unknown) => void,
     onEnd: () => void
   ) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const win = window as any;
     const SpeechRecognition = 
-      (window as any).SpeechRecognition || 
-      (window as any).webkitSpeechRecognition;
+      win.SpeechRecognition || 
+      win.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
       onError("Your browser does not support voice input. Please type instead.");
@@ -58,11 +60,13 @@ export const SpeechHelper = {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     recognition.onresult = (event: any) => {
       const speechToText = event.results[0][0].transcript;
       onResult(speechToText);
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     recognition.onerror = (event: any) => {
       onError(event.error || "Voice error");
     };

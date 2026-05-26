@@ -4,7 +4,7 @@ export interface QuizQuestion {
   questionHi: string;
   audioEn: string;
   audioHi: string;
-  imageSvg: string; // inline SVG placeholder representations for high-fidelity visual matching
+  imageSvg: string;
   optionsEn: string[];
   optionsHi: string[];
   correctIndex: number;
@@ -15,6 +15,11 @@ export interface Trade {
   nameEn: string;
   nameHi: string;
   icon: string;
+  description: string;
+  tags: string[];
+  bgFrom: string;
+  bgTo: string;
+  accentColor: string;
   questions: QuizQuestion[];
 }
 
@@ -52,6 +57,11 @@ export const tradesData: Trade[] = [
     nameEn: "Tailoring & Sewing",
     nameHi: "सिलाई और कढ़ाई",
     icon: "Scissors",
+    description: "Master garment construction, stitching techniques, fabric selection, and pattern making with hands-on AI evaluation.",
+    tags: ["Stitching", "Pattern Making", "Embroidery", "Fabric"],
+    bgFrom: "#f0fdfa",
+    bgTo: "#ecfdf5",
+    accentColor: "#0D9488",
     questions: [
       {
         id: 1,
@@ -59,61 +69,33 @@ export const tradesData: Trade[] = [
         questionHi: "कपड़े को सही तरीके से मापने के लिए किस उपकरण का उपयोग किया जाता है?",
         audioEn: "Which tool is used for measuring fabric correctly? Measuring tape, scissors, or needle?",
         audioHi: "कपड़े को सही तरीके से मापने के लिए किस उपकरण का उपयोग किया जाता है? नापने वाला फीता, कैंची, या सुई?",
-        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-teal-50 rounded-lg p-2"><path d="M10 30h80M20 25v10M30 25v10M40 25v10M50 25v10M60 25v10M70 25v10M80 25v10" stroke="#0D5C75" stroke-width="4" stroke-linecap="round"/><text x="50" y="52" fill="#0D5C75" font-size="10" text-anchor="middle" font-weight="bold">Measuring Tape (इंची टेप)</text></svg>`,
+        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-teal-50 rounded-lg p-2"><path d="M10 30h80M20 25v10M30 25v10M40 25v10M50 25v10M60 25v10M70 25v10M80 25v10" stroke="#0D5C75" stroke-width="4" stroke-linecap="round"/><text x="50" y="52" fill="#0D5C75" font-size="10" text-anchor="middle" font-weight="bold">Measuring Tape</text></svg>`,
         optionsEn: ["Measuring Tape", "Scissors", "Needle"],
         optionsHi: ["नापने वाला फीता (इंची टेप)", "कैंची", "सुई"],
         correctIndex: 0
-      },
-      {
-        id: 2,
-        questionEn: "What is this thread holder called in a sewing machine?",
-        questionHi: "सिलाई मशीन में धागे को पकड़ने वाले इस पुर्जे को क्या कहते हैं?",
-        audioEn: "What is this thread holder called? Bobbin, Wheel, or Pedal?",
-        audioHi: "धागे को पकड़ने वाले इस पुर्जे को क्या कहते हैं? बॉबिन, पहिया, या पैडल?",
-        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-teal-50 rounded-lg p-2"><circle cx="50" cy="30" r="18" fill="none" stroke="#D4AF37" stroke-width="6"/><circle cx="50" cy="30" r="8" fill="#0D5C75"/><line x1="38" y1="30" x2="62" y2="30" stroke="#fff" stroke-width="2"/><text x="50" y="56" fill="#0D5C75" font-size="8" text-anchor="middle" font-weight="bold">Bobbin (बॉबिन / फिरकी)</text></svg>`,
-        optionsEn: ["Bobbin / Spool", "Hand Wheel", "Machine Needle"],
-        optionsHi: ["बॉबिन / फिरकी", "हाथ का पहिया", "मशीन की सुई"],
-        correctIndex: 0
-      },
-      {
-        id: 3,
-        questionEn: "Identify this type of stitch usually used for borders and design.",
-        questionHi: "किनारे की डिज़ाइन और सजावट के लिए उपयोग होने वाले इस टांके को पहचानें।",
-        audioEn: "Identify this stitch: Running stitch, Zig-zag stitch, or Cross stitch?",
-        audioHi: "इस टांके को पहचानें: सीधी सिलाई, टेढ़ी-मेढ़ी (ज़िग-ज़ैग) सिलाई, या क्रॉस टांका?",
-        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-teal-50 rounded-lg p-2"><path d="M10 20 l15 20 l15-20 l15 20 l15-20 l15 20" fill="none" stroke="#0D5C75" stroke-width="4" stroke-dasharray="2,2" stroke-linecap="round"/><text x="50" y="54" fill="#0D5C75" font-size="8" text-anchor="middle" font-weight="bold">Zig-zag Stitch (ज़िग-ज़ैग सिलाई)</text></svg>`,
-        optionsEn: ["Running Stitch", "Zig-zag Stitch", "Cross Stitch"],
-        optionsHi: ["सीधी सिलाई", "टेढ़ी-मेढ़ी (ज़िग-ज़ैग) सिलाई", "क्रॉस टांका"],
-        correctIndex: 1
       }
     ]
   },
   {
     id: "beauty",
-    nameEn: "Beauty & Wellness",
-    nameHi: "ब्यूटी पार्लर व सिलाई-श्रृंगार",
+    nameEn: "Beauty & Parlour",
+    nameHi: "ब्यूटी पार्लर व श्रृंगार",
     icon: "Sparkles",
+    description: "Learn professional makeup, skin care, hair styling, bridal looks, and modern beauty treatments with expert AI guidance.",
+    tags: ["Makeup", "Hair Styling", "Skin Care", "Bridal"],
+    bgFrom: "#fdf2f8",
+    bgTo: "#fce7f3",
+    accentColor: "#db2777",
     questions: [
       {
         id: 1,
         questionEn: "Which tool is used for eyebrow hair removal?",
-        questionHi: "भौंहों (आइब्रो) के बाल हटाने के लिए किस धागे/उपकरण का उपयोग किया जाता है?",
+        questionHi: "भौंहों के बाल हटाने के लिए किस उपकरण का उपयोग किया जाता है?",
         audioEn: "Which tool is used for eyebrow hair removal? Threading spool, Hair brush, or Lipstick?",
         audioHi: "भौंहों के बाल हटाने के लिए किस उपकरण का उपयोग किया जाता है? थ्रेडिंग धागा, कंघी, या लिपस्टिक?",
-        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-teal-50 rounded-lg p-2"><path d="M30 40 L70 20 M30 20 L70 40" stroke="#0D5C75" stroke-width="3"/><circle cx="50" cy="30" r="6" fill="#D4AF37"/><text x="50" y="54" fill="#0D5C75" font-size="8" text-anchor="middle" font-weight="bold">Threading Thread (थ्रेडिंग धागा)</text></svg>`,
+        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-pink-50 rounded-lg p-2"><path d="M30 40 L70 20 M30 20 L70 40" stroke="#db2777" stroke-width="3"/><circle cx="50" cy="30" r="6" fill="#D4AF37"/><text x="50" y="54" fill="#db2777" font-size="8" text-anchor="middle" font-weight="bold">Threading Thread</text></svg>`,
         optionsEn: ["Threading Thread", "Hair Brush", "Lipstick Brush"],
         optionsHi: ["थ्रेडिंग धागा", "बालों का ब्रश", "लिपस्टिक ब्रश"],
-        correctIndex: 0
-      },
-      {
-        id: 2,
-        questionEn: "Identify this beauty blender used for makeup application.",
-        questionHi: "चेहरे पर मेकअप मिलाने/लगाने के लिए इस स्पंज को क्या कहते हैं?",
-        audioEn: "Identify this beauty sponge: Blender sponge, Scissors, or Hair roller?",
-        audioHi: "मेकअप लगाने के लिए इस स्पंज को क्या कहते हैं? ब्लेंडर स्पंज, कैंची, या हेयर रोलर?",
-        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-teal-50 rounded-lg p-2"><path d="M50 15 C40 25 35 35 35 45 C35 52 42 55 50 55 C58 55 65 52 65 45 C65 35 60 25 50 15 Z" fill="#D4AF37" opacity="0.8"/><text x="50" y="10" fill="#0D5C75" font-size="8" text-anchor="middle" font-weight="bold">Beauty Blender (मेकअप स्पंज)</text></svg>`,
-        optionsEn: ["Blender Sponge", "Face Scrubber", "Eyeliner Pen"],
-        optionsHi: ["मेकअप स्पंज (ब्लेंडर)", "फेस स्क्रबर", "आईलाइनर पेन"],
         correctIndex: 0
       }
     ]
@@ -123,27 +105,45 @@ export const tradesData: Trade[] = [
     nameEn: "Food Prep & Catering",
     nameHi: "खाद्य तैयारी व कैटरिंग",
     icon: "Utensils",
+    description: "Excel in professional cooking, food safety, catering management, and entrepreneurship in the food industry.",
+    tags: ["Cooking", "Food Safety", "Catering", "Nutrition"],
+    bgFrom: "#fff7ed",
+    bgTo: "#ffedd5",
+    accentColor: "#ea580c",
     questions: [
       {
         id: 1,
         questionEn: "Which kitchen tool is used for rolling out flatbread (rotis)?",
-        questionHi: "रोटी या चपाती बेलने के लिए रसोई के किस उपकरण का उपयोग किया जाता है?",
+        questionHi: "रोटी बेलने के लिए रसोई के किस उपकरण का उपयोग किया जाता है?",
         audioEn: "Which tool is used for rolling out rotis? Rolling Pin, Knife, or Frying Pan?",
         audioHi: "रोटी बेलने के लिए किसका उपयोग किया जाता है? बेलन, चाकू, या कड़ाही?",
-        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-teal-50 rounded-lg p-2"><rect x="15" y="27" width="70" height="6" rx="3" fill="#D4AF37"/><rect x="5" y="29" width="10" height="2" rx="1" fill="#0D5C75"/><rect x="85" y="29" width="10" height="2" rx="1" fill="#0D5C75"/><text x="50" y="50" fill="#0D5C75" font-size="8" text-anchor="middle" font-weight="bold">Rolling Pin (बेलन)</text></svg>`,
+        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-orange-50 rounded-lg p-2"><rect x="15" y="27" width="70" height="6" rx="3" fill="#ea580c"/><text x="50" y="50" fill="#ea580c" font-size="8" text-anchor="middle" font-weight="bold">Rolling Pin</text></svg>`,
         optionsEn: ["Rolling Pin (Belan)", "Knife", "Frying Pan (Kadhai)"],
-        optionsHi: ["बेलन (Rolling Pin)", "चाकू", "कड़ाही"],
+        optionsHi: ["बेलन", "चाकू", "कड़ाही"],
         correctIndex: 0
-      },
+      }
+    ]
+  },
+  {
+    id: "handicrafts",
+    nameEn: "Handicrafts & Weaving",
+    nameHi: "हस्तशिल्प और बुनाई",
+    icon: "Sparkles",
+    description: "Develop skills in traditional handloom weaving, pottery, block printing, and artisan craft for domestic and export markets.",
+    tags: ["Weaving", "Pottery", "Block Print", "Handloom"],
+    bgFrom: "#fefce8",
+    bgTo: "#fef9c3",
+    accentColor: "#ca8a04",
+    questions: [
       {
-        id: 2,
-        questionEn: "Which spice is added to Indian curries to give them a yellow color?",
-        questionHi: "भारतीय करी/सब्जी को पीला रंग देने के लिए कौन सा मसाला डाला जाता है?",
-        audioEn: "Which spice gives food a yellow color? Turmeric, Salt, or Red Chili?",
-        audioHi: "सब्जी को पीला रंग देने के लिए कौन सा मसाला डाला जाता है? हल्दी, नमक, या लाल मिर्च?",
-        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-teal-50 rounded-lg p-2"><path d="M30 45 C35 30 45 30 50 45 Z" fill="#E5A93B"/><circle cx="50" cy="45" r="10" fill="#E5A93B"/><text x="50" y="20" fill="#0D5C75" font-size="10" text-anchor="middle" font-weight="bold">Turmeric (हल्दी)</text></svg>`,
-        optionsEn: ["Turmeric (Haldi)", "Salt", "Red Chili Powder"],
-        optionsHi: ["हल्दी (Haldi)", "नमक", "लाल मिर्च पाउडर"],
+        id: 1,
+        questionEn: "Which material is commonly used for making traditional clay pots?",
+        questionHi: "पारंपरिक मिट्टी के बर्तन बनाने के लिए किस सामग्री का उपयोग किया जाता है?",
+        audioEn: "Which material is used for making traditional clay pots? Terracotta Clay, Plastic, or Metal?",
+        audioHi: "मिट्टी के बर्तन बनाने के लिए किस सामग्री का उपयोग किया जाता है? टेराकोटा मिट्टी, प्लास्टिक, या धातु?",
+        imageSvg: `<svg viewBox="0 0 100 60" class="w-full h-24 bg-yellow-50 rounded-lg p-2"><path d="M40 20 L60 20 C70 30 75 40 50 50 C25 40 30 30 40 20 Z" fill="#ca8a04"/><text x="50" y="58" fill="#ca8a04" font-size="8" text-anchor="middle" font-weight="bold">Clay Pot</text></svg>`,
+        optionsEn: ["Terracotta Clay", "Plastic", "Metal Sheet"],
+        optionsHi: ["टेराकोटा मिट्टी", "प्लास्टिक", "धातु की चादर"],
         correctIndex: 0
       }
     ]
@@ -159,24 +159,24 @@ export const schemesData: Scheme[] = [
     descriptionHi: "पारंपरिक कारीगरों और शिल्पकारों के लिए सहायता। पहचान पत्र, कौशल उन्नयन, टूलकिट प्रोत्साहन और बिना गारंटी के ऋण प्रदान करता है।",
     benefitsEn: "₹15,000 Toolkit Grant + Collateral-Free Loans up to ₹3,00,000 at 5% interest.",
     benefitsHi: "₹15,000 टूलकिट अनुदान + 5% ब्याज पर ₹3,00,000 तक बिना गारंटी का ऋण।",
-    eligibilityEn: "Self-employed artisans in 18 specified trades, including Tailors.",
-    eligibilityHi: "दर्जी सहित 18 निर्दिष्ट व्यवसायों में स्व-नियोजित कारीगर।",
+    eligibilityEn: "Self-employed artisans in 18 specified trades.",
+    eligibilityHi: "18 निर्दिष्ट व्यवसायों में स्व-नियोजित कारीगर।",
     tagsEn: ["Grant", "Tool Kit", "Low Interest Loan"],
     tagsHi: ["अनुदान", "टूल किट", "कम ब्याज ऋण"],
     logoType: "tool"
   },
   {
     id: "mudra",
-    titleEn: "Mudra Loan (Shishu & Kishor)",
-    titleHi: "मुद्रा योजना (शिशु और किशोर ऋण)",
-    descriptionEn: "Government-backed loans for starting or expanding small businesses. Perfect for setting up home boutique, food shop, or parlour.",
-    descriptionHi: "छोटे व्यवसाय शुरू करने या बढ़ाने के लिए सरकारी ऋण। बुटीक, ब्यूटी पार्लर या टिफिन सेंटर खोलने के लिए उत्तम।",
-    benefitsEn: "Loans from ₹50,000 up to ₹5 Lakhs with minimal paper documentation.",
+    titleEn: "Mudra Loan",
+    titleHi: "मुद्रा योजना (शिशु और किशोर)",
+    descriptionEn: "Government-backed loans for starting or expanding small businesses.",
+    descriptionHi: "छोटे व्यवसाय शुरू करने या बढ़ाने के लिए सरकारी ऋण।",
+    benefitsEn: "Loans from ₹50,000 up to ₹5 Lakhs with minimal documentation.",
     benefitsHi: "न्यूनतम दस्तावेजों के साथ ₹50,000 से लेकर ₹5 लाख तक का ऋण।",
     eligibilityEn: "Women entrepreneurs running or starting micro/small businesses.",
-    eligibilityHi: "सूक्ष्म/लघु व्यवसाय शुरू करने या चलाने वाली महिला उद्यमी।",
-    tagsEn: ["Business Capital", "No Security Required"],
-    tagsHi: ["व्यवसाय पूंजी", "कोई सुरक्षा आवश्यक नहीं"],
+    eligibilityHi: "सूक्ष्म/लघु व्यवसाय शुरू करने वाली महिला उद्यमी।",
+    tagsEn: ["Business Capital", "No Security"],
+    tagsHi: ["व्यवसाय पूंजी", "कोई सुरक्षा नहीं"],
     logoType: "loan"
   },
   {
@@ -185,12 +185,40 @@ export const schemesData: Scheme[] = [
     titleHi: "पीएम स्वनिधि योजना",
     descriptionEn: "Micro-credit scheme for street vendors and small home-based food preparers to restart/grow their businesses.",
     descriptionHi: "रेहड़ी-पटरी वालों और घर पर भोजन बनाने वाली महिलाओं के लिए सूक्ष्म ऋण योजना।",
-    benefitsEn: "First loan of ₹10,000, 7% interest subsidy, cashback on digital transactions.",
-    benefitsHi: "₹10,000 का प्रारंभिक ऋण, 7% ब्याज सब्सिडी, डिजिटल लेनदेन पर कैशबैक।",
+    benefitsEn: "First loan of ₹10,000, 7% interest subsidy.",
+    benefitsHi: "₹10,000 का प्रारंभिक ऋण, 7% ब्याज सब्सिडी।",
     eligibilityEn: "Street food makers, home-catering providers, and small stall owners.",
     eligibilityHi: "सड़क किनारे भोजन बनाने वाले, होम-कैटरिंग प्रदाता और छोटे स्टॉल मालिक।",
     tagsEn: ["Working Capital", "Subsidized Interest"],
     tagsHi: ["कार्यशील पूंजी", "रियायती ब्याज"],
+    logoType: "training"
+  },
+  {
+    id: "standup",
+    titleEn: "Stand-Up India Scheme",
+    titleHi: "स्टैंड-अप इंडिया योजना",
+    descriptionEn: "Facilitates bank loans between ₹10 lakh and ₹1 Crore to at least one woman per bank branch for setting up a greenfield enterprise.",
+    descriptionHi: "हर बैंक शाखा से कम से कम एक महिला को नया व्यवसाय शुरू करने के लिए 10 लाख से 1 करोड़ रुपये तक का ऋण।",
+    benefitsEn: "Loans from ₹10 Lakhs to ₹1 Crore.",
+    benefitsHi: "10 लाख से 1 करोड़ रुपये तक का ऋण।",
+    eligibilityEn: "Women entrepreneurs (above 18 years) setting up a new enterprise in manufacturing, services, or trading sector.",
+    eligibilityHi: "18 वर्ष से अधिक आयु की महिला उद्यमी जो नया व्यवसाय स्थापित कर रही हैं।",
+    tagsEn: ["Large Capital", "Enterprise Growth"],
+    tagsHi: ["बड़ी पूंजी", "व्यापार विकास"],
+    logoType: "loan"
+  },
+  {
+    id: "pmkvy",
+    titleEn: "PM Kaushal Vikas Yojana (PMKVY)",
+    titleHi: "पीएम कौशल विकास योजना",
+    descriptionEn: "Flagship scheme for skill training of youth and women to get better livelihoods.",
+    descriptionHi: "बेहतर आजीविका प्राप्त करने के लिए युवाओं और महिलाओं के कौशल प्रशिक्षण के लिए प्रमुख योजना।",
+    benefitsEn: "Free short-term training, certification, and placement assistance.",
+    benefitsHi: "मुफ्त अल्पावधि प्रशिक्षण, प्रमाणन और रोजगार सहायता।",
+    eligibilityEn: "Any Indian citizen seeking skill training and employment.",
+    eligibilityHi: "कौशल प्रशिक्षण और रोजगार चाहने वाला कोई भी भारतीय नागरिक।",
+    tagsEn: ["Free Training", "Placement Help"],
+    tagsHi: ["मुफ्त प्रशिक्षण", "रोजगार सहायता"],
     logoType: "training"
   }
 ];
@@ -200,48 +228,48 @@ export const jobsData: Job[] = [
     id: "job1",
     titleEn: "Urgent: 5 Tailors for Boutique",
     titleHi: "आवश्यकता: बुटीक के लिए 5 महिला दर्जी",
-    employer: "Radha Boutique & Designer wear",
-    locationEn: "Sector 15, Near Metro Station",
-    locationHi: "सेक्टर 15, मेट्रो स्टेशन के पास",
-    salaryEn: "₹12,000 - ₹18,000 / month",
-    salaryHi: "₹12,000 - ₹18,000 / प्रति माह",
+    employer: "Radha Boutique",
+    locationEn: "Sector 15",
+    locationHi: "सेक्टर 15",
+    salaryEn: "₹12,000 / month",
+    salaryHi: "₹12,000 / माह",
     tradeId: "tailoring",
-    phone: "+91 98765 43210"
+    phone: "9876543210"
   },
   {
     id: "job2",
     titleEn: "Bridal Makeup Artist Assistant",
     titleHi: "ब्राइडल मेकअप आर्टिस्ट सहायक",
     employer: "Golden Glow Beauty Parlour",
-    locationEn: "Rampur Chauraha, Main Bazaar",
-    locationHi: "रामपुर चौराहा, मुख्य बाज़ार",
-    salaryEn: "₹8,000 - ₹15,000 / month",
-    salaryHi: "₹8,000 - ₹15,000 / प्रति माह",
+    locationEn: "Main Bazaar",
+    locationHi: "मुख्य बाज़ार",
+    salaryEn: "₹10,000 / month",
+    salaryHi: "₹10,000 / माह",
     tradeId: "beauty",
-    phone: "+91 87654 32109"
+    phone: "8765432109"
   },
   {
     id: "job3",
-    titleEn: "Home Cook for Catering Service",
-    titleHi: "कैटरिंग सेवा के लिए घरेलू रसोइया/कुक",
-    employer: "Annapurna Rasoi Services",
-    locationEn: "Civil Lines, Near Temple",
-    locationHi: "सिविल लाइन्स, मंदिर के पास",
-    salaryEn: "₹10,000 - ₹14,000 / month",
-    salaryHi: "₹10,000 - ₹14,000 / प्रति माह",
+    titleEn: "Catering Helper for Events",
+    titleHi: "इवेंट कैटरिंग सहायक",
+    employer: "Shree Caterers",
+    locationEn: "City Center",
+    locationHi: "सिटी सेंटर",
+    salaryEn: "₹9,000 / month",
+    salaryHi: "₹9,000 / माह",
     tradeId: "foodprep",
-    phone: "+91 76543 21098"
+    phone: "7654321098"
   },
   {
     id: "job4",
-    titleEn: "Need Blouse Stitching Specialist",
-    titleHi: "ब्लाउज सिलाई विशेषज्ञ की आवश्यकता",
-    employer: "She Creations Tailoring Hub",
-    locationEn: "Malviya Nagar Market",
-    locationHi: "मालवीय नगर बाजार",
-    salaryEn: "₹15,000 - ₹20,000 / month",
-    salaryHi: "₹15,000 - ₹20,000 / प्रति माह",
-    tradeId: "tailoring",
-    phone: "+91 65432 10987"
+    titleEn: "Handicraft Artisan Wanted",
+    titleHi: "हस्तशिल्प कारीगर चाहिए",
+    employer: "Kala Exports",
+    locationEn: "Industrial Area",
+    locationHi: "औद्योगिक क्षेत्र",
+    salaryEn: "₹11,000 / month",
+    salaryHi: "₹11,000 / माह",
+    tradeId: "handicrafts",
+    phone: "6543210987"
   }
 ];
